@@ -271,10 +271,11 @@ ProcRenderQueryVersion(ClientPtr client)
 
     REQUEST(xRenderQueryVersionReq);
 
+    REQUEST_SIZE_MATCH(xRenderQueryVersionReq);
+
     pRenderClient->major_version = stuff->majorVersion;
     pRenderClient->minor_version = stuff->minorVersion;
 
-    REQUEST_SIZE_MATCH(xRenderQueryVersionReq);
     memset(&rep, 0, sizeof(xRenderQueryVersionReply));
     rep.type = X_Reply;
     rep.length = 0;
