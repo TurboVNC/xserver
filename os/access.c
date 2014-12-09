@@ -1343,7 +1343,7 @@ GetHosts(pointer *data, int *pnHosts, int *pLen, BOOL * pEnabled)
         }
         for (host = validhosts; host; host = host->next) {
             len = host->len;
-            if ((ptr + sizeof(xHostEntry) + len) > (data + n))
+            if ((ptr + sizeof(xHostEntry) + len) > ((unsigned char *) *data + n))
                 break;
             ((xHostEntry *) ptr)->family = host->family;
             ((xHostEntry *) ptr)->length = len;
